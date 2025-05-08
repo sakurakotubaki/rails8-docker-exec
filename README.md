@@ -26,6 +26,8 @@ docker exec -it rails8-docker-web-1 bash
 ```shell
 # Railsアプリケーションを新規作成
 cd /rails
+
+# /railsがなかったのでこちらからでも良さそう。
 # コンテナ内で
 bundle install
 # create project

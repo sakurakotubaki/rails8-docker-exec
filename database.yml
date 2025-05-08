@@ -2,20 +2,20 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: db                              # ← ホスト名を「db」に変更
-  username: postgres                    # ← ユーザー名を「postgres」に変更
-  password: password                    # ← パスワードを「password」に変更
+  host: db
+  username: general_user                # ← ユーザー名を「general_user」に変更
+  password: password                    # ← パスワードはそのまま
 
 development:
   <<: *default
-  database: myapp_development           # ← アプリ名に合わせて調整
+  database: dev_db                      # ← データベース名を「dev_db」に変更
 
 test:
   <<: *default
-  database: myapp_test                  # ← アプリ名に合わせて調整
+  database: dev_db_test                 # ← テスト用データベース名も変更
 
 production:
   <<: *default
-  database: myapp_production            # ← アプリ名に合わせて調整
-  username: myapp                       # ← 必要に応じて変更
-  password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>  # ← 環境変数名を調整
+  database: dev_db_production           # ← 本番用データベース名も変更
+  username: general_user                # ← ユーザー名を「general_user」に変更
+  password: <%= ENV["DEV_DB_DATABASE_PASSWORD"] %>  # ← 環境変数名も調整
